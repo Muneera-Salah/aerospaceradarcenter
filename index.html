@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>SMSNR | Smart management system for reserves</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="img/logo2.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">SMSNR</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+            data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Sign out</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="sidebar-sticky pt-3">
+                    <img src="img/logo.png" width="90%">
+                    <hr>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <span data-feather="home"></span>
+                                Dashboard <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="bar-chart-2"></span>
+                                Reports
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="layers"></span>
+                                Setting
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">SMSNR | Smart management system for reserves</h1>
+                </div>
+
+                <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+                
+
+
+                <br />
+                <div class="row">
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                          <div class="card-content">
+                            <div class="card-body">
+                              <div class="media d-flex">
+                                <div class="align-self-center">
+                                    <img src="icons/shield.png" width="100px">                                
+                                </div>
+                                <div class="media-body text-right">
+                                  <h3 style="color: green;">Stable</h3>
+                                  <span>Safety ratio</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                          <div class="card-content">
+                            <div class="card-body">
+                              <div class="media d-flex">
+                                <div class="align-self-center">
+                                    <img src="icons/water-pollution.png" width="100px">
+                                </div>
+                                <div class="media-body text-right">
+                                  <h3 style="color: green;">Moderate</h3>
+                                  <span>Pollution</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                          <div class="card-content">
+                            <div class="card-body">
+                              <div class="media d-flex">
+                                <div class="align-self-center">
+                                    <img src="icons/poaching.png" width="100px">                                
+                                </div>
+                                <div class="media-body text-right">
+                                  <h3 style="color: green;">Stable</h3>
+                                  <span>Monitor poaching</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                          <div class="card-content">
+                            <div class="card-body">
+                              <div class="media d-flex">
+                                <div class="align-self-center">
+                                    <img src="icons/fire-flames.png" width="100px">                                  
+                                 </div>
+                                <div class="media-body text-right">
+                                  <h3>2</h3>
+                                  <span>Hazard probability</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <br />
+                
+                <h2>Rate Of Increase</h2>
+                <div class="row">
+                    <div class="col-8">
+                        <canvas class="my-4 w-100" id="myChart2" width="900" height="380"></canvas>
+                    </div>
+                    <div class="col-4">
+                        <img class="my-4 w-100" src="img/map.png" >
+                    </div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <h2>Animals Tracking</h2>
+                <div class="table-responsive">
+                    <table id="example" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Code_ID</th>
+                                <th>Type</th>
+                                <th>Age</th>
+                                <th>Vital signs</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AW242</td>
+                                <td>Capra ibex</td>
+                                <td>3 months</td>
+                                <td style="color: green;"><i class="fa fa-check" aria-hidden="true"></i> Good </td>
+                                <td><button class="btn btn-sm btn-secondary"><i class="fa fa-map-marker" aria-hidden="true"></i><botton></td>
+                            </tr>
+                            <tr>
+                                <td>AW245</td>
+                                <td>Capra ibex</td>
+                                <td>3 months</td>
+                                <td style="color: green;"><i class="fa fa-check" aria-hidden="true"></i> Good </td>
+                                <td><button class="btn btn-sm btn-secondary"><i class="fa fa-map-marker" aria-hidden="true"></i><botton></td>
+                            </tr>
+                            <tr>
+                                <td>AW243</td>
+                                <td>Struthio camelus syriacus</td>
+                                <td>1 year</td>
+                                <td style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                    dangerous </td>
+                                <td><button class="btn btn-sm btn-secondary"><i class="fa fa-map-marker" aria-hidden="true"></i><botton></td>
+                            </tr>
+                            <tr>
+                                <td>AW255</td>
+                                <td>Capra ibex</td>
+                                <td>2 years</td>
+                                <td style="color: orange;"><i class="fa fa-life-ring" aria-hidden="true"></i> warning
+                                </td>
+                                <td><button class="btn btn-sm btn-secondary"><i class="fa fa-map-marker" aria-hidden="true"></i><botton></td>
+                            </tr>
+                            <tr>
+                                <td>AW246</td>
+                                <td>Struthio camelus syriacus</td>
+                                <td>2 years</td>
+                                <td style="color: orange;"><i class="fa fa-life-ring" aria-hidden="true"></i> warning
+                                </td>
+                                <td><button class="btn btn-sm btn-secondary"><i class="fa fa-map-marker" aria-hidden="true"></i><botton></td>
+                            </tr>                            
+                            <tr>
+                                <td>AW247</td>
+                                <td>Struthio camelus syriacus</td>
+                                <td>2 years</td>
+                                <td style="color: green;"><i class="fa fa-check" aria-hidden="true"></i> Good </td>
+                                </td>
+                                <td><button class="btn btn-sm btn-secondary"><i class="fa fa-map-marker" aria-hidden="true"></i><botton></td>
+                            </tr>                            
+                            <tr>
+                                <td>AW248</td>
+                                <td>Canis lupus arabs</td>
+                                <td>4 years</td>
+                                <td style="color: green;"><i class="fa fa-check" aria-hidden="true"></i> Good </td>
+                                </td>
+                                <td><button class="btn btn-sm btn-secondary"><i class="fa fa-map-marker" aria-hidden="true"></i><botton></td>
+                            </tr>
+                        <tfoot>
+                            <tr>
+                                <th>Code_ID</th>
+                                <th>Type</th>
+                                <th>Age</th>
+                                <th>Vital signs</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                initComplete: function () {
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            var column = this;
+                            var select = $('<select><option value=""></option></select>')
+                                .appendTo($(column.footer()).empty())
+                                .on('change', function () {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                    column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                });
+
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function (d, j) {
+                                    select.append('<option value="' + d + '">' + d + '</option>');
+                                });
+                        });
+                },
+            });
+        });
+    </script>
+
+    <script>
+        var ctx = document.getElementById("myChart2").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Capra ibex", "Canis lupus arabs", "Vulpes ruppelli", "Felis Silvestris", "Felis Margarita" ,"Mellivora capenis"],
+                datasets: [{
+                    label: 'Last Year',
+                    data: [12, 19, 3, 17, 28, 24],
+                    backgroundColor: "rgba(128,128,128,1)"
+                }, {
+                    label: 'This Year',
+                    data: [30, 29, 5, 5, 20, 3],
+                    backgroundColor: "rgba(87,185,87,1)"
+                }]
+            }
+        });
+    </script>
+
+    <!-- Bar Chart - END -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.6/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="js/dashboard.js"></script>
+
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+</body>
+
+</html>
